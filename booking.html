@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Page</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+
+  <div class=" my-5">
+    <h2 style="text-align: center;">Room Booking</h2>
+
+    <!-- Room Details Section -->
+    <div id="room-details">
+      <div class="back">
+        <div class="dr">
+      <h3 id="room-name"></h3>
+      <img src="" alt="">
+      <p><strong>Price per Night:</strong> $<span id="room-price"></span></p>
+      <p><strong>Amenities:</strong> <span id="room-amenities"></span></p>
+      <p><strong>Max People:</strong> <span id="room-max-people"></span></p> </div></div>
+
+      <!-- Booking Form -->
+      <h4 class="m-5">Book Now</h4>
+      <form class="container">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+          <label for="date">Check-in Date</label>
+          <input type="date" class="form-control" id="date">
+        </div>
+        <div class="form-group">
+          <label for="nights">Number of Nights</label>
+          <input type="number" class="form-control" id="nights" placeholder="Enter number of nights">
+        </div>
+        <button type="submit" class="btn" style="background: #7c5836; color:#fff;">Book Room</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Extract query parameters from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const roomName = urlParams.get('roomName');
+    const price = urlParams.get('price');
+    const amenities = urlParams.get('amenities');
+    const maxPeople = urlParams.get('maxPeople');
+
+    // Display the room details on the booking page
+    document.getElementById('room-name').textContent = roomName;
+    document.getElementById('room-price').textContent = price;
+    document.getElementById('room-amenities').textContent = amenities;
+    document.getElementById('room-max-people').textContent = maxPeople;
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
